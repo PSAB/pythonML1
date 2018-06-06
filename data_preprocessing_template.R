@@ -3,14 +3,17 @@
 # Importing the dataset
 dataset = read.csv('Data.csv')
 
-# Splitting the dataset into the Training set and Test set
-# install.packages('caTools')
-library(caTools)
-set.seed(123)
-split = sample.split(dataset$DependentVariable, SplitRatio = 0.8)
-training_set = subset(dataset, split == TRUE)
-test_set = subset(dataset, split == FALSE)
+# Taking care of missing data:
 
-# Feature Scaling
-# training_set = scale(training_set)
-# test_set = scale(test_set)
+# Pointing to the column "Age":
+# ifelse 3 values: condition, value you want to input if 
+#condition is true, and value you want to input if condition is
+#false
+dataset$Age = ifelse(is.na(dataset$Age), ave(dataset$Age, FUN = function(x) mean(x, na.rm = TRUE)), dataset$Age)
+  # if there was a missing value, it was replaced w/ col average
+
+
+
+
+
+
