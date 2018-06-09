@@ -28,4 +28,15 @@ imputer = imputer.fit(X[:, 1:3]) # Specify columns that contain the missing data
 X[:, 1:3] = imputer.transform(X[:, 1:3])
 
 
+# Encoding categorical data
+from sklearn.preprocessing import LabelEncoder
+# creating an object of the class we imported
+labelencoder_X = LabelEncoder()
+X[:, 0] = labelencoder_X.fit_transform(X[:, 0])
+# France is 0, Germany is 1, Spain is 2
+
+
+
+
+
 
