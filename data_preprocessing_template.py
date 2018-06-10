@@ -29,11 +29,29 @@ X[:, 1:3] = imputer.transform(X[:, 1:3])
 
 
 # Encoding categorical data
-from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 # creating an object of the class we imported
 labelencoder_X = LabelEncoder()
 X[:, 0] = labelencoder_X.fit_transform(X[:, 0])
 # France is 0, Germany is 1, Spain is 2
+
+# Machine learning models are based in equations, so it's good to
+#encode categorical data into numerical values
+
+# However, there is no relational order between the countries
+
+# To prevent the ML model from interpreting order, use dummy 
+#encoding table
+
+# Fit the OneHotEncoder onto the first column of index 0
+onehotencoder = OneHotEncoder(categorical_features = [0])
+X = onehotencoder.fit_transform(X).toarray()
+
+# Create the labelEncoder object for the dependent purchased column
+labelEncoder_Y = LabelEncoder()
+Y = labelEncoder_Y.fit_transform(Y)
+# Yes is 1, no is 0
+
 
 
 
