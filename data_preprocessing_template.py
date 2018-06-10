@@ -53,6 +53,20 @@ Y = labelEncoder_Y.fit_transform(Y)
 # Yes is 1, no is 0
 
 
+# Splitting the dataset into the training set and the test set
+from sklearn.model_selection import train_test_split
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.2, random_state = 42) 
+# w/ test_size of 0.2 and 10 observations, 2 go to test & 8 go to training
+# X corresponds to the feature variables,
+# Y corresponds to the dependent variables
+# random_state is the seed of random # generator, can be any int value
+
+
+
+
+
+
+
 
 
 
