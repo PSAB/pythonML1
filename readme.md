@@ -1,3 +1,1 @@
-THis is the Python ML Library
-ANother line
-Added improvements to the ML language for better performance
+This repository is just used for my own practice with preprocessing data for machine learning algorithms in python.
